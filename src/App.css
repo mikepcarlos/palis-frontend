@@ -1,32 +1,258 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'UnicaOne-Regular';
+  src: url('./UnicaOne/UnicaOne-Regular.eot');
+  src: url('./UnicaOne/UnicaOne-Regular.eot?#iefix') format('embedded-opentype'),
+       url('./UnicaOne/UnicaOne-Regular.woff') format('woff'),
+       url('./UnicaOne/UnicaOne-Regular.ttf') format('truetype'),
+       url('./UnicaOne/UnicaOne-Regular.svg#UnicaOne-Regular') format('svg');
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+@font-face {
+  font-family: 'Comfortaa-Light';
+  src: url('./Comfortaa/Comfortaa-Light.eot');
+  src: url('./Comfortaa/Comfortaa-Light.eot?#iefix') format('embedded-opentype'),
+       url('./Comfortaa/Comfortaa-Light.woff') format('woff'),
+       url('./Comfortaa/Comfortaa-Light.ttf') format('truetype'),
+       url('./Comfortaa/Comfortaa-Light.svg#Comfortaa-Light') format('svg');
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: 'UnicaOne-Regular',sans-serif;
+  font-size: 50px;
+
+}
+
+.Search {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+	outline: none;
+}
+
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 1px;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 230px;
+	background-color: #fff;
+	border-color: #66CC75;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+.fav-container-before { /* BEFORE CLICK */
+  position: relative;
+  border-radius: 5%;
+  right: 1%;
+  bottom: 400px;
+  height: 350px;
+  float: right;
+  background-color: #ee5051;
+  /* -webkit-box-shadow: 0 0 30px #cbbeb5; */
+  /* border: outset 2px #333333; */
+  width: 3.5%;
+
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  -ms-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+
+.fav-container-after { /* AFTER CLICK */
+  /* overflow: scroll; */
+  position: relative;
+  border-radius: 5%;
+  right: 1%;
+  bottom: 400px;
+  height: 350px;
+  float: right;
+  background-color: #e3e0cf;
+  -webkit-box-shadow: 0 0 30px #cbbeb5;
+  border: outset 2px #333333;
+  width: 20%;
+  /* text-align: center; */
+
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  -ms-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+
+/* .fav-box {
+  overflow: scroll;
+  border: 3px solid blue;
+  border-top: 30%;
+} */
+
+.fav-button {
+  position: relative;
+  top: 42%;
+  left: 2%;
+}
+
+.fav-cards-before {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.fav-cards-after {
+  position: relative;
+  background-color: #feffff;
+  border-radius: 5%;
+  border: outset 2px #b56969;
+  height: 91%;
+  margin-left: 20%;
+  margin-right: 2%;
+  width: 72%;
+  -webkit-box-shadow: 0 0 30px #edd9c0;
+  overflow: scroll;
+
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.fav-card {
+  position: relative;
+  background-color: white;
+  display: flex;
+  border-bottom: 2px dotted #7d4627;
+  border-radius: 15%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#fav-name {
+  position: relative;
+  text-align:center;
+  font-size: 15px;
+  font-style: italic;
+  font-family: 'Comfortaa-Light',sans-serif;
+}
+
+#fav-image-size {
+  position: relative;
+  width:  80px;
+  height: 80px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  border-radius: 30%;
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  border: 3px solid #ddd;
+  left: -20%; /* does not maintain position when minimizing window FIX */
+}
+
+
+.rec-container {
+  /* overflow: scroll; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+  border: 3px solid #ddd;
+  /* margin: 5%; */
+  margin-left: 16%;
+  margin-top: 6%;
+  /* bottom: 60px; */
+  height: 400px;
+  width: 60%;
 }
 
-.App-link {
-  color: #61dafb;
+.scroll-con{
+  overflow: scroll;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rec-images {
+  position: relative;
+  width:  60px;
+  height: 60px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  display: block;
+  margin-left: 28%;
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  padding: 5px;
+}
+
+.rec-card{
+  margin-top: 1%;
+  border-bottom: 2px dotted white;
+  vertical-align: middle;
+}
+
+.rec-headers {
+  border-bottom: 2px dotted white;
+}
+
+.rec-card > p {
+  position: relative;
+  margin-top: 3%;
+  line-height: 200%;
+  display: inline-block;
+  vertical-align: middle;
+  width: 23%;
+  border-right: 2px dotted white;
+}
+
+#rec-info{
+  margin-bottom: 3%;
+  text-align: center;
+  display: inline-block;
+  /* vertical-align: middle; */
+  /* line-height: 50px; */
+}
+
+.rec-headers > label{
+  margin-top: 3%;
+  margin-bottom: 4%;
+  display: inline-block;
+  zoom: 1;
+  width: 23%;
+  text-align: center;
+  border-right: 2px dotted white;
+}
+
+
+#header {
+  font-family: 'UnicaOne-Regular',sans-serif;
+  font-size: 25px;
 }
