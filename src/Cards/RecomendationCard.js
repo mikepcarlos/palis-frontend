@@ -49,16 +49,25 @@ export default class RecomendationCard extends Component {
     this.fetchImage()
   }
 
+  handleFaveSubmit = (e) => {
+    e.preventDefault()
+    this.props.addToFavorites(this.props.info, this.getUrl())
+  }
+
   render(){
       return(
-        <div className="rec-card">
-          <p>
-            <img className="rec-images" src={this.getUrl()} alt=""/>
-          </p>
-          <p id="rec-info">{this.props.info.Name}</p>
-          <p id="rec-info">{this.props.info.Type}</p>
-          <button type="button" className="rec-action-button">ADD TO FAVORITES</button>
-        </div>
+        <form onSubmit={this.handleFaveSubmit}>
+          <div className="rec-card">
+            <p>
+              <img className="rec-images" src={this.getUrl()} alt=""/>
+            </p>
+            <p id="rec-info">{this.props.info.Name}</p>
+            <p id="rec-info">{this.props.info.Type}</p>
+            <button type="submit" value="Submit" className="rec-action-button">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+        </form>
       )
 
   }

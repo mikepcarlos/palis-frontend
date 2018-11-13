@@ -42,7 +42,20 @@ export default class RecomendationContainer extends Component {
 
   renderRecCard = () => {
     if (this.state.recs.length !== 0){
-      return this.state.recs.map(rec => <RecomendationCard key={rec.wUrl} info={rec}/>)
+      return this.state.recs.map(rec => <RecomendationCard key={rec.wUrl} info={rec} addToFavorites={this.props.addToFavorites}/>)
+    } else {
+      return (<div className="empty-rec-con">
+          <i className="fas fa-kiwi-bird"></i>
+          <p id="no-recs-text">Nothing to See Here</p>
+        </div>)
+    }
+  }
+
+  beforeAndAfterCon = () => {
+    if (this.state.recs.length === 0) {
+      return "rec-container-before"
+    } else {
+      return "rec-container-after"
     }
   }
 
@@ -50,7 +63,7 @@ export default class RecomendationContainer extends Component {
     return(
       <div>
         <SearchBar searchTerm={this.state.searchTerm} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-        <div className="rec-container">
+        <div className={this.beforeAndAfterCon()}>
           <div className="rec-headers">
             <label id="header">Pic</label>
             <label id="header">Title</label>

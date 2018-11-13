@@ -16,6 +16,20 @@
        url('./Comfortaa/Comfortaa-Light.svg#Comfortaa-Light') format('svg');
 }
 
+@font-face {
+  font-family: 'Ninoshandwriting';
+  src: url('./Ninoshandwriting/ninoshandwriting.eot');
+  src: url('./Ninoshandwriting/ninoshandwriting.eot?#iefix') format('embedded-opentype'),
+       url('./Ninoshandwriting/ninoshandwriting.woff') format('woff'),
+       url('./Ninoshandwriting/ninoshandwriting.ttf') format('truetype'),
+       url('./Ninoshandwriting/ninoshandwriting.svg#Ninoshandwriting') format('svg');
+}
+
+.App {
+  padding: 0;
+  margin: 0;
+}
+
 .title {
   display: flex;
   justify-content: center;
@@ -70,10 +84,10 @@ input[type=search]:focus {
 }
 
 .fav-container-before { /* BEFORE CLICK */
-  position: relative;
+  position: fixed;
   border-radius: 5%;
   right: 1%;
-  bottom: 400px;
+  bottom: 200px;
   height: 350px;
   float: right;
   background-color: #ee5051;
@@ -90,14 +104,14 @@ input[type=search]:focus {
 
 .fav-container-after { /* AFTER CLICK */
   /* overflow: scroll; */
-  position: relative;
+  position: fixed;
   border-radius: 5%;
   right: 1%;
-  bottom: 400px;
+  bottom: 200px;
   height: 350px;
   float: right;
-  background-color: #e3e0cf;
-  -webkit-box-shadow: 0 0 30px #cbbeb5;
+  background-color: #edd9c0;
+  -webkit-box-shadow: 0 0 30px #c7ad88;
   border: outset 2px #333333;
   width: 20%;
   /* text-align: center; */
@@ -131,7 +145,10 @@ input[type=search]:focus {
 
 .fav-cards-after {
   position: relative;
-  background-color: #feffff;
+  background-color: #e9ece5;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
   border-radius: 5%;
   border: outset 2px #b56969;
   height: 91%;
@@ -150,7 +167,7 @@ input[type=search]:focus {
 
 .fav-card {
   position: relative;
-  background-color: white;
+  background-color: #e9ece5;
   display: flex;
   border-bottom: 2px dotted #7d4627;
   border-radius: 15%;
@@ -160,7 +177,7 @@ input[type=search]:focus {
 
 #fav-name {
   position: relative;
-  text-align:center;
+  text-align: left;
   font-size: 15px;
   font-style: italic;
   font-family: 'Comfortaa-Light',sans-serif;
@@ -179,21 +196,53 @@ input[type=search]:focus {
   left: -20%; /* does not maintain position when minimizing window FIX */
 }
 
-
-.rec-container {
+.rec-container-before {
   /* overflow: scroll; */
   display: flex;
   flex-direction: column;
   /* align-items: flex-start; */
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
-  border: 3px solid #ddd;
+  border: 3px outset #edd9c0;
   /* margin: 5%; */
-  margin-left: 16%;
-  margin-top: 6%;
+  margin-left: 24%;
+  margin-top: 2%;
+  /* bottom: 60px; */
+  height: 170px;
+  width: 50%;
+  background-color: #64706c;
+  -webkit-box-shadow: 0 0 10px #c7ad88;
+
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+}
+
+
+.rec-container-after {
+  /* overflow: scroll; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  border: 3px outset #edd9c0;
+  /* margin: 5%; */
+  margin-left: 24%;
+  margin-top: 2%;
   /* bottom: 60px; */
   height: 400px;
-  width: 60%;
+  width: 50%;
+  background-color: #64706c;
+  -webkit-box-shadow: 0 0 10px #c7ad88;
+
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .scroll-con{
@@ -209,28 +258,31 @@ input[type=search]:focus {
   background-size:     cover;
   display: block;
   margin-left: 28%;
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
   padding: 5px;
 }
 
 .rec-card{
   margin-top: 1%;
-  border-bottom: 2px dotted white;
+  border-bottom: 1px solid #edd9c0;
   vertical-align: middle;
+  /* margin-left: 5%; */
 }
 
 .rec-headers {
-  border-bottom: 2px dotted white;
+  background-color: #e9ece5;
+  border-bottom: 4px inset black;
 }
 
 .rec-card > p {
   position: relative;
   margin-top: 3%;
+  margin-left: 1.5%;
   line-height: 200%;
   display: inline-block;
   vertical-align: middle;
   width: 23%;
-  border-right: 2px dotted white;
+  /* border-right: 2px dotted black; */
+  font-family: 'Comfortaa-Light', sans-serif;
 }
 
 #rec-info{
@@ -241,6 +293,27 @@ input[type=search]:focus {
   /* line-height: 50px; */
 }
 
+#header {
+  border: 2px outset black;
+  display: inline-block;
+  margin-left: 1%;
+  /* padding: 2%; */
+}
+
+.empty-rec-con {
+  text-align: center;
+}
+
+.empty-rec-con i {
+  margin-top: 1%;
+  font-size: 30px;
+}
+
+#no-recs-text {
+  font-family: 'Ninoshandwriting',sans-serif;
+  font-size: 20px;
+}
+
 .rec-headers > label{
   margin-top: 3%;
   margin-bottom: 4%;
@@ -248,11 +321,86 @@ input[type=search]:focus {
   zoom: 1;
   width: 23%;
   text-align: center;
-  border-right: 2px dotted white;
+  /* border-right: 2px dotted black; */
+}
+
+.rec-action-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  font-size: 25px;
+  margin-left: 10%;
+}
+
+.fav-action-delete {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  font-size: 15px;
+}
+
+#fav-icon {
+  font-size: 40px;
 }
 
 
 #header {
   font-family: 'UnicaOne-Regular',sans-serif;
   font-size: 25px;
+}
+
+.Queue-container {
+  position: fixed;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  border: 3px outset #edd9c0;
+  -webkit-box-shadow: 0 0 10px #c7ad88;
+  width: 17%;
+  bottom: 30px;
+  height: 550px;
+  margin-left: 0.2%;
+  background-color: #edd9c0;
+}
+
+.queue-item {
+  flex-basis: 22%;
+  width: 100%;
+  border: 1px inset #ede9ce;
+
+}
+
+.queue-item i {
+  position: relative;
+  margin-top: 20%;
+  margin-left: 40%;
+  font-size: 35px;
+}
+
+#games-menu {
+  background-color: #c9d8c5;
+}
+
+#movies-menu {
+  background-color: #a8b6bf;
+}
+
+#music-menu {
+  background-color: #c7ad88;
+}
+
+#show-menu {
+  background-color: #64706c;
+}
+
+#queue-header-title {
+  font-family: 'UnicaOne-Regular',sans-serif;
+  font-size: 30px;
 }
