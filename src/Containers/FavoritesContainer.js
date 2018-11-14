@@ -11,7 +11,7 @@ const FavoritesContainer = (props) => {
 
   return(
     <div className={dynamicClass}>
-      <div className="fav-button">
+      <div className="fav-button" >
         <i class="fas fa-star" id="fav-icon" onClick={props.clickFaveContainer}></i>
       </div>
       <div className={dynamicCardCon}>
